@@ -18,7 +18,7 @@ jobs:
 
       - name: Validate swagger files
         run: |
-          swagger-cli validate -d ./api/swagger/data_api.yaml --type yaml --format 2
+          swagger-cli validate -d ./api/swagger/data_api.yaml --type yaml --format 2 --no-spec  ./api/swagger/data_api.yaml
 
   swagger-release:
     if: github.event.pull_request.merged == true
