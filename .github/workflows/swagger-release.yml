@@ -7,18 +7,18 @@ on:
     types: [opened, synchronize, closed]
 
 jobs:
-  swagger-validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  # swagger-validate:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Install swagger-cli
-        run: |
-          npm install -g swagger-cli
+  #     - name: Install swagger-cli
+  #       run: |
+  #         npm install -g swagger-cli
 
-      - name: Validate swagger files
-        run: |
-          swagger-cli validate -d ./api/swagger/data_api.yaml --type yaml
+  #     - name: Validate swagger files
+  #       run: |
+  #         swagger-cli validate -d ./api/swagger/data_api.yaml --type yaml
 
   swagger-release:
     if: github.event.pull_request.merged == true
