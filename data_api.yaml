@@ -2,7 +2,8 @@ openapi: 3.0.0
 info:
   version: 1.0.0
   title: Data API
-  description: Movable Type Data API Swagger
+  description: >-
+    Movable Type Data API Swagger
 servers:
   - url: 'http://localhost:11000/cgi-bin/mt/mt-data-api.cgi/v4/'
 tags:
@@ -25,7 +26,7 @@ paths:
     post:
       tags:
         - Authentication
-      description: |
+      description: >
         Authentication : Authenticationでアクセストークン取得
       parameters:
         - $ref: '#/components/parameters/Username'
@@ -55,7 +56,7 @@ paths:
     get:
       tags:
         - Site
-      description: |
+      description: >
         Site Collection : サイトの一覧情報取得
       parameters:
         - $ref: '#/components/parameters/Search'
@@ -91,11 +92,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/assets':
+  /sites/{site_id}/assets:
     get:
       tags:
         - Assets
-      description: |
+      description: >
         Assets : ファイルの情報取得
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -120,11 +121,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/assets/{asset_id}':
+  /sites/{site_id}/assets/{asset_id}:
     get:
       tags:
         - Assets
-      description: |
+      description: >
         Assets : ファイルの情報取得
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -148,11 +149,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}':
+  /sites/{site_id}:
     get:
       tags:
         - Site
-      description: |
+      description: >
         Site : サイト情報取得
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -176,11 +177,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/categorySets':
+  /sites/{site_id}/categorySets:
     get:
       tags:
         - Category Set
-      description: |
+      description: >
         Category Set Collection : カテゴリセット一覧の情報取得
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -217,11 +218,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/categorySets/{category_set_id}':
+  /sites/{site_id}/categorySets/{category_set_id}:
     get:
       tags:
         - Category Set
-      description: |
+      description: >
         Category Set : カテゴリセットの情報取得
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -246,11 +247,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/categorySets/{category_set_id}/categories':
+  /sites/{site_id}/categorySets/{category_set_id}/categories:
     get:
       tags:
         - Category Set
-      description: |
+      description: >
         Category Set Categories Collection : カテゴリセットのカテゴリ一覧取得
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -284,11 +285,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/categorySets/{category_set_id}/categories/{category_id}':
+  /sites/{site_id}/categorySets/{category_set_id}/categories/{category_id}:
     get:
       tags:
         - Category Set
-      description: |
+      description: >
         Category Set Category : カテゴリセットの特定のカテゴリを取得する
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -314,7 +315,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/contentTypes':
+  /sites/{site_id}/contentTypes:
     get:
       tags:
         - Content Types
@@ -351,7 +352,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/contentTypes/{content_type_id}':
+  /sites/{site_id}/contentTypes/{content_type_id}:
     get:
       tags:
         - Content Types
@@ -381,11 +382,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/contentTypes/{content_type_id}/data':
+  /sites/{site_id}/contentTypes/{content_type_id}/data:
     get:
       tags:
         - Content Data
-      description: |
+      description: >
         Content Data Collection : コンテンツデータ一覧の情報取得
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -431,7 +432,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/contentTypes/{content_type_id}/dataExtend':
+  /sites/{site_id}/contentTypes/{content_type_id}/dataExtend:
     get:
       tags:
         - Content Data
@@ -473,11 +474,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/contentTypes/{content_type_id}/data/{content_data_id}':
+  /sites/{site_id}/contentTypes/{content_type_id}/data/{content_data_id}:
     get:
       tags:
         - Content Data
-      description: |
+      description: >
         Content Data : コンテンツデータ詳細の情報取得 ※お知らせなどの詳細画面で利用する
       parameters:
         - $ref: '#/components/parameters/SiteId'
@@ -503,7 +504,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
-  '/sites/{site_id}/contentTypes/{content_type_id}/fields':
+  /sites/{site_id}/contentTypes/{content_type_id}/fields:
     get:
       tags:
         - Content Fields
@@ -541,6 +542,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error404'
+
 components:
   parameters:
     AssetsId:
@@ -666,7 +668,7 @@ components:
     Fields:
       in: query
       name: fields
-      description: 'The field list to retrieve as part of the Content Data resource. That list should be separated by comma. If this parameter is not specified, All fields will be returned.'
+      description: The field list to retrieve as part of the Content Data resource. That list should be separated by comma. If this parameter is not specified, All fields will be returned.
       required: false
       schema:
         type: string
@@ -692,11 +694,7 @@ components:
       required: false
       schema:
         type: string
-        enum:
-          - name
-          - dataLabel
-          - uniqueID
-          - modified_on
+        enum: [ name, dataLabel, uniqueID, modified_on ]
     CategorySetSortBy:
       in: query
       name: sortBy
@@ -705,12 +703,7 @@ components:
       required: false
       schema:
         type: string
-        enum:
-          - id
-          - name
-          - created_on
-          - modified_on
-          - content_type_count
+        enum: [ id, name, created_on, modified_on, content_type_count ]
     ContentDataAndContentFieldSortBy:
       in: query
       name: sortBy
@@ -719,12 +712,7 @@ components:
       required: false
       schema:
         type: string
-        enum:
-          - id
-          - uniqueID
-          - authored_on
-          - created_on
-          - modified_on
+        enum: [ id, uniqueID, authored_on, created_on, modified_on ]
     SiteSortBy:
       in: query
       name: sortBy
@@ -733,8 +721,7 @@ components:
       required: false
       schema:
         type: string
-        enum:
-          - name
+        enum: [ name ]
     SortBy:
       in: query
       name: sortBy
@@ -743,16 +730,7 @@ components:
       required: false
       schema:
         type: string
-        enum:
-          - id
-          - uniqueID
-          - authored_on
-          - created_on
-          - modified_on
-          - label
-          - basename
-          - created_by
-          - user_custom
+        enum: [id, uniqueID, authored_on, created_on, modified_on, label, basename, created_by, user_custom]
     SortOrder:
       in: query
       name: sortOrder
@@ -762,9 +740,7 @@ components:
         required: false
       schema:
         type: string
-        enum:
-          - descend
-          - ascend
+        enum: [descend, ascend]
     MaxDepth:
       name: maxDepth
       in: query
@@ -918,7 +894,7 @@ components:
       required: false
       schema:
         type: object
-        properties: {}
+        properties: { }
         additionalProperties: false
     DataAPIExtendSearchQuerySortFieldName:
       in: query
@@ -938,9 +914,7 @@ components:
       required: false
       schema:
         type: string
-        enum:
-          - descend
-          - ascend
+        enum: [descend, ascend]
     DataAPIExtendSearchQueryLimitPerPage:
       in: query
       name: limitPerPage
@@ -1020,7 +994,7 @@ components:
           description: The preferred archive type for this site.
         archiveUrl:
           type: string
-          description: 'The archive url of this site. [Update in v2] This property was changed to updatable.'
+          description: The archive url of this site. [Update in v2] This property was changed to updatable.
         autodiscoverLinks:
           type: boolean
           required: false
@@ -1083,7 +1057,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of created user''s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string.'
+              description: The URL of created user's userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string.
         createdDate:
           type: string
           description: The created time for this website. (format is iso 8601 datetime)
@@ -1104,7 +1078,7 @@ components:
         description:
           type: string
           nullable: true
-          description: 'The description of this site. [Update in v2] This property was changed to updatable.'
+          description: The description of this site. [Update in v2] This property was changed to updatable.
         dynamicCache:
           type: boolean
           required: false
@@ -1126,7 +1100,7 @@ components:
         extraPath:
           type: string
           required: false
-          description: 'The raw data of extra path for default upload destination. If extra path is not configured, this value is a blank string.'
+          description: The raw data of extra path for default upload destination. If extra path is not configured, this value is a blank string.
         fileExtension:
           type: string
           required: false
@@ -1182,7 +1156,7 @@ components:
           description: The last modified time for this website. (format is iso 8601 datetime)
         name:
           type: string
-          description: 'The name for this site. [Update in v2] This property was changed to updatable.'
+          description: The name for this site. [Update in v2] This property was changed to updatable.
         newCreatedUserRoles:
           type: array
           required: false
@@ -1215,7 +1189,7 @@ components:
             name:
               type: string
               description: The name of parent website.
-          description: 'The parent website of this blog. If this object is top level sige, this field must be null.'
+          description: The parent website of this blog. If this object is top level sige, this field must be null.
         publishEmptyArchive:
           type: boolean
           required: false
@@ -1296,7 +1270,7 @@ components:
             raw (string) - The raw data of default upload destination. If default upload destination is not configured, this value is a blank string.
         url:
           type: string
-          description: 'The site url of this site.  [Update in v2] This property was changed to updatable.'
+          description: The site url of this site.  [Update in v2] This property was changed to updatable.
         useCommentConfirmation:
           type: boolean
           required: false
@@ -1354,7 +1328,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of this content type creator''s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.'
+              description: The URL of this content type creator's userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.
           description: Created user of this content type. Not writable.
         createdDate:
           type: string
@@ -1380,7 +1354,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of this content type modifier''s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.'
+              description: The URL of this content type modifier's userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.
           description: Last modified user of this content type. Not writable.
         modifiedDate:
           type: string
@@ -1418,7 +1392,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of this content data creator''s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable'
+              description: The URL of this content data creator's userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable
         basename:
           type: string
           description: The identifier for this content data.
@@ -1482,7 +1456,7 @@ components:
                     type: string
                   parentId:
                     type: string
-              description: 学科カテゴリのレスポンス
+              description: '学科カテゴリのレスポンス'
             CategoryKinds:
               type: array
               items:
@@ -1495,7 +1469,7 @@ components:
                     type: string
                   parentId:
                     type: string
-              description: 種別カテゴリのレスポンス
+              description: '種別カテゴリのレスポンス'
             CategorySubject:
               type: array
               items:
@@ -1508,7 +1482,7 @@ components:
                     type: string
                   parentId:
                     type: string
-              description: 対象カテゴリのレスポンス
+              description: '対象カテゴリのレスポンス'
             CategoryUndergraduate:
               type: array
               items:
@@ -1521,7 +1495,7 @@ components:
                     type: string
                   parentId:
                     type: string
-              description: 学部カテゴリのレスポンス
+              description: '学部カテゴリのレスポンス'
             OGP:
               type: array
               items:
@@ -1534,7 +1508,7 @@ components:
                     type: string
                   url:
                     type: string
-              description: OGP画像のレスポンス
+              description: 'OGP画像のレスポンス'
             MainVisual:
               type: array
               items:
@@ -1547,7 +1521,7 @@ components:
                     type: string
                   url:
                     type: string
-              description: key名は、カテゴリセット・アセットのフィールド名
+              description: 'key名は、カテゴリセット・アセットのフィールド名'
           description: DataAPIContentDataRelations plugin response
     CategorySetCollection:
       type: object
@@ -1600,7 +1574,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of created user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.'
+              description: The URL of created user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.
         createdDate:
           type: string
           description: he created time for this category. (format is iso 8601 datetime)
@@ -1632,7 +1606,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of modified user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.'
+              description: The URL of modified user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.
         modifiedDate:
           type: string
           description: The last modified time for this category. (format is iso 8601 datetime)
@@ -1698,7 +1672,7 @@ components:
       properties:
         archiveLink:
           type: string
-          description: 'The category archive URL of this category. If “Category” archive mapping is not configured, this value will be null.'
+          description: The category archive URL of this category. If “Category” archive mapping is not configured, this value will be null.
         basename:
           type: string
           description: The basename of this category.
@@ -1720,7 +1694,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of created user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.'
+              description: The URL of created user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.
         createdDate:
           type: string
           description: he created time for this category. (format is iso 8601 datetime)
@@ -1744,7 +1718,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of modified user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.'
+              description: The URL of modified user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.
         modifiedDate:
           type: string
           description: The last modified time for this category. (format is iso 8601 datetime)
@@ -1790,7 +1764,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of this category set created''s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.'
+              description: The URL of this category set created's userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.
           description: Last modified user of this category set. Not writable.
         createdDate:
           type: string
@@ -1807,7 +1781,7 @@ components:
             userpicUrl:
               type: string
               nullable: true
-              description: 'The URL of this category set modifier''s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.'
+              description: The URL of this category set modifier's userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, will be returned empty string. Not writable.
           description: Last modified user of this category set. Not writable.
         modifiedDate:
           type: string
@@ -1844,7 +1818,7 @@ components:
                   userpicUrl:
                     type: string
                     nullable: true
-                    description: 'The URL of created user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.'
+                    description: The URL of created user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.
               createdDate:
                 type: string
                 description: he created time for this category. (format is iso 8601 datetime)
@@ -1870,7 +1844,7 @@ components:
                   userpicUrl:
                     type: string
                     nullable: true
-                    description: 'The URL of modified user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.'
+                    description: The URL of modified user’s userpic. The userpic will be made by UserpicThumbnailSize and UserpicAllowRect settings. If user does not set own userpic, empty string will be returned.
               modifiedDate:
                 type: string
                 description: The last modified time for this category. (format is iso 8601 datetime)
@@ -1908,7 +1882,7 @@ components:
                     type: string
                   required:
                     type: string
-                    description: 0か1
+                    description: '0か1'
                   input_format:
                     type: string
                   decimal_places:
@@ -1956,7 +1930,7 @@ components:
         sessionId:
           type: string
     Error403:
-      type: object
+      type: "object"
       properties:
         error:
           type: object
@@ -1968,7 +1942,7 @@ components:
               type: string
               example: Do not have permission to create child site.
     Error404:
-      type: object
+      type: "object"
       properties:
         error:
           type: object
@@ -1980,7 +1954,8 @@ components:
               type: string
               example: Site not found
 security:
-  - ApiKeyAuth: []
+  - ApiKeyAuth: []     # use the same name as under securitySchemes
+
 externalDocs:
-  description: Find out more about Swagger
-  url: 'http://swagger.io'
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
