@@ -31,15 +31,16 @@ jobs:
         run: |
           npm install -g swagger-cli
 
-      - name: Inject Swagger static files
+      - name: Validate Swagger Files
         run: |
-          wget https://github.com/swagger-api/swagger-ui/archive/refs/tags/v4.1.0.tar.gz
-          tar -zxvf v4.1.0.tar.gz swagger-ui-4.1.0/dist/
-          cp swagger-ui-4.1.0/dist/* docs/
+          swagger-cli validate -d ./api/swagger/data_api.yaml --type yaml --format 2 --no-spec --no-schema ./api/swagger/data_api.yaml
 
-      - name: Combine Multiple Swagger Files
-        run: |
-          swagger-cli bundle ./api/swagger/data_api.yaml --outfile docs/data_api.yaml --type yaml --format 2
+      - name: Generate Swagger UI
+        if: github.event.pull_request.merged == true
+        uses: Legion2/swagger-ui-action@v1
+        with:
+          output: docs
+          spec-file: ./api/swagger/data_api.yaml
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
