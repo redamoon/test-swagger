@@ -7,6 +7,19 @@ on:
     types: [opened, synchronize, closed]
 
 jobs:
+  swagger-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install swagger-cli
+        run: |
+          npm install -g swagger-cli
+
+      - name: Validate swagger files
+        run: |
+          swagger-cli validate -d ./api/swagger/data_api.yaml --type yaml --format 2
+
   swagger-release:
     if: github.event.pull_request.merged == true
     needs: swagger-validate
@@ -26,7 +39,7 @@ jobs:
 
       - name: Combine Multiple Swagger Files
         run: |
-          swagger-cli bundle ./api/swagger/data_api.yaml --outfile docs/data_api.yaml --type yaml --format 3
+          swagger-cli bundle ./api/swagger/data_api.yaml --outfile docs/data_api.yaml --type yaml --format 2
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
