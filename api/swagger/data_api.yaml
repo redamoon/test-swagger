@@ -8,7 +8,7 @@ servers:
   - url: 'http://localhost:11000/cgi-bin/mt/mt-data-api.cgi/v4/'
 tags:
   - name: Authentication
-    description: Authentication でアクセストークン取得1
+    description: Authentication でアクセストークン取得
   - name: Site
     description: Site の情報取得
   - name: Content Types
